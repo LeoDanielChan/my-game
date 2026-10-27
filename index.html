@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grid Protocol</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="ash"></canvas>
+
+  <div id="app">
+    <!-- MENÚ -->
+    <section id="screen-menu" class="screen active">
+      <div class="menu-box">
+        <h1 class="logo" data-text="GRID PROTOCOL"><span>GRID</span> PROTOCOL</h1>
+        <p class="tagline" data-i18n="tagline"></p>
+        <p class="lore" data-i18n="lore"></p>
+        <div class="menu-actions">
+          <button class="btn big" id="btn-play" data-i18n="menu.play"></button>
+          <button class="btn ghost" id="btn-help" data-i18n="menu.howto"></button>
+        </div>
+        <div class="settings">
+          <div class="set-row">
+            <label data-i18n="menu.lang"></label>
+            <div class="seg"><button data-lang="es">ES</button><button data-lang="en">EN</button></div>
+          </div>
+          <div class="set-row">
+            <label data-i18n="menu.diff"></label>
+            <div class="seg">
+              <button data-diff="easy" data-i18n="diff.easy"></button>
+              <button data-diff="normal" data-i18n="diff.normal"></button>
+              <button data-diff="hard" data-i18n="diff.hard"></button>
+            </div>
+          </div>
+          <p id="diff-desc" class="muted"></p>
+          <button class="btn ghost small" id="btn-sound"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISIONES -->
+    <section id="screen-missions" class="screen">
+      <header class="scr-head">
+        <button class="btn ghost small" data-go="menu" data-i18n="menu.back"></button>
+        <h2 data-i18n="missions.title"></h2>
+      </header>
+      <div id="mission-list"></div>
+    </section>
+
+    <!-- ESCUADRÓN -->
+    <section id="screen-squad" class="screen">
+      <header class="scr-head">
+        <button class="btn ghost small" data-go="missions" data-i18n="squad.back"></button>
+        <h2 data-i18n="squad.title"></h2>
+        <span id="squad-mission" class="muted"></span>
+      </header>
+      <div class="squad-layout">
+        <div id="unit-catalog"></div>
+        <aside class="squad-side panel">
+          <div id="budget-text" class="big-num"></div>
+          <div class="budget-bar"><i id="budget-fill"></i></div>
+          <div id="units-text" class="muted"></div>
+          <div id="squad-list"></div>
+          <div id="synergy"></div>
+          <div class="side-btns">
+            <button class="btn ghost small" id="btn-random" data-i18n="squad.random"></button>
+            <button class="btn ghost small" id="btn-clear" data-i18n="squad.clear"></button>
+          </div>
+          <button class="btn big" id="btn-deploy" data-i18n="squad.deploy"></button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BATALLA -->
+    <section id="screen-battle" class="screen">
+      <header class="topbar">
+        <div class="tb-left">
+          <b id="mission-name"></b>
+          <span id="obj-text"></span>
+        </div>
+        <div class="tb-right">
+          <span id="round-text"></span>
+          <span id="turn-text"></span>
+          <button class="btn small" id="btn-end" data-i18n="hud.endTurn"></button>
+          <button class="btn ghost small" id="btn-help2">?</button>
+          <button class="btn ghost small" id="btn-sound2">♪</button>
+          <button class="btn ghost small" id="btn-quit" data-i18n="hud.menu"></button>
+        </div>
+      </header>
+      <div class="battle-main">
+        <div id="board-wrap">
+          <canvas id="board"></canvas>
+          <div id="banner" class="banner"></div>
+        </div>
+        <aside class="side">
+          <div id="unit-panel" class="panel"></div>
+          <div id="target-panel" class="panel"></div>
+          <div id="log" class="panel"></div>
+        </aside>
+      </div>
+      <footer class="bottombar">
+        <div id="roster"></div>
+        <div id="actions"></div>
+      </footer>
+    </section>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="modal-x" id="modal-x">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+  <div id="tip"></div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/combat.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
